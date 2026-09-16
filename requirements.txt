@@ -1,0 +1,26 @@
+# Core scientific stack
+numpy==2.1.3
+scipy==1.15.3
+pandas
+scikit-learn
+pyarrow
+
+# Shared dependencies
+huggingface-hub>=0.35.3
+gluonts==0.16.2
+lightning==2.3.3
+einops>=0.8.1,<0.9
+
+# DoTime + static TabPFN reference
+dotime[baselines]==0.1.3
+
+# Forecasting models
+chronos-forecasting==2.3.1
+tabpfn-time-series==1.2.0
+timesfm==2.0.2
+tirex-2==0.2.1
+
+# Uni2TS runtime helpers
+hydra-core==1.3.0
+orjson
+jax[cpu]==0.5.3
