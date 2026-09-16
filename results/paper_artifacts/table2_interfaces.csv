@@ -1,0 +1,13 @@
+Model,Interface,Identifiability,Continuous in-window,Continuous post-window
+Chronos-2,P1,✓,✓,✓
+TabPFN-TS,P1,✓,✓,✓
+TiRex-2,P1,✓,✓,✓
+Moirai-1.1,P1,✓,✓,—
+Moirai-2.0,P1,✓,✓,—
+TimesFM-2.5,P1*,✓,✓,—
+Toto-1.0,P2,limited†,limited†,—
+Chronos-Bolt,interface-limited,—,—,—
+TiRex-1,interface-limited,—,—,—
+Sundial,interface-limited,—,—,—
+Static TabPFN,causal ref.,✓,—,—
+DoT-PFN,causal ref.,✓,✓,✓
