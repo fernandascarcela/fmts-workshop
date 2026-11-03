@@ -1,8 +1,0 @@
-Metric,Definition
-Usage Gap,mean(|tau_hat|)
-Effect Delta RMSE ↓,sqrt(mean((tau_hat - tau)^2))
-Effect Delta MAE ↓,mean(|tau_hat - tau|)
-Effect-direction accuracy ↑,"mean(sign(tau_hat) = sign(tau)), |tau| >= 0.1"
-Central-80% coverage,mean(q10 <= Y_do <= q90); target = 0.80
-Approx. CRPS ↓,"2 × mean pinball loss over q=0.1,...,0.9"
-Effect Profile ↓,Effect Delta MAE within each offset bin
