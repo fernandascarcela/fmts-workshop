@@ -608,6 +608,21 @@ def main():
     if args.population == "intersection":
         predictions = restrict_common(predictions)
 
+    # Null-effect controls. In Identifiability the query sits at the
+    # intervention onset (offset 0), so episodes without a same-step path
+    # from treatment to outcome have a true effect of exactly zero (see the
+    # DoTime errata). The headline is also reported on nonzero-effect
+    # episodes only, where the zero-effect anchor is no longer optimal by
+    # construction.
+    ident_nonzero = predictions[
+        (predictions["regime"] == "identifiability")
+        & (predictions["true_effect"] != 0)
+    ]
+    
+    counts = ident_nonzero.groupby("model")["episode"].nunique()
+
+    print(f"Identifiability nonzero-effect episodes per model:\n{counts}")
+
     kw = {"n_boot": args.n_boot, "seed": args.seed}
     outputs = {
         "per_episode.csv": predictions,
@@ -619,6 +634,12 @@ def main():
             predictions, ["model", "regime", "horizon"], **kw
         ),
         "duration_accrual.csv": duration_accrual(predictions),
+        "summary_pooled_nonzero.csv": summarize(
+            ident_nonzero, ["model", "regime"], **kw
+        ),
+        "summary_by_structure_nonzero.csv": summarize(
+            ident_nonzero, ["model", "regime", "structure"], **kw
+        ),
     }
 
     print("\nSaved:")

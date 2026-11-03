@@ -1,0 +1,36 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local agent/editor state
+.agents/
+.codex/
+.DS_Store
+*.swp
+*.swo
+
+# Downloaded benchmark data and local scratch material
+data/
+delete/
+
+# Large raw experimental artifacts
+results/runs/
+results/metrics/per_episode.csv
+
+# Exploratory notebooks may contain local paths and large outputs.
+notebooks/*.ipynb
+!notebooks/fmts_workshop_tables_figures.ipynb
+
+# Older duplicate raster figures
+images/
+
